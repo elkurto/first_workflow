@@ -1,0 +1,22 @@
+name: My First Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest    # refered to as the runner
+
+    steps:
+    - name: Check out repository      #step 1 : checkout code
+      uses: actions/checkout@v3
+
+    - name: Use Node.js 18            #step 2 : setup node env (at version 18)
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: Print a message           #step 3 : print a hello message
+      run: echo "Hello, world!"
